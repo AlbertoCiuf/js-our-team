@@ -5,27 +5,27 @@ const members = [
   {
    name: 'Angela Caroll',
    role: 'Chief Editor',
-   photo: 'img/angela-caroll-chief-editor.jpg'
+   photo: 'angela-caroll-chief-editor.jpg'
   },
   {
    name: 'Angela Lopez',
    role: 'Social Media Manager',
-   photo: 'img/angela-lopez-social-media-manager.jpg'
+   photo: 'angela-lopez-social-media-manager.jpg'
   },
   {
    name: 'Barbara Ramos',
    role: 'Graphic Designer',
-   photo: 'img/angela-lopez-social-media-manager.jpg'
+   photo: 'angela-lopez-social-media-manager.jpg'
   },
   {
    name: 'Scott Estrada',
    role: 'Developer',
-   photo: 'img/scott-estrada-developer.jpg'
+   photo: 'scott-estrada-developer.jpg'
   },
   {
    name: 'Walter Gordon',
    role: 'Office Manager',
-   photo: 'img/walter-gordon-office-manager.jpg'
+   photo: 'walter-gordon-office-manager.jpg'
   }
 ];
 
@@ -42,7 +42,35 @@ for (let index in members) {
   generateMember(teamContainer, singleMember);
 
 }
-console.log(teamContainer);
+//console.log(teamContainer);
+
+
+const newMemberButton = document.getElementById('addMemberButton');
+const newMemberName = document.getElementById('name');
+const newMemberRole = document.getElementById('role');
+const newMemberImg = document.getElementById('image');
+
+
+
+newMemberButton.addEventListener('click', function(){
+  
+  let customMemberName = newMemberName.value;
+  let customMemberRole = newMemberRole.value;
+  let customMemberImg = newMemberImg.value;
+
+  const customMember = {
+    name : customMemberName,
+    role: customMemberRole,
+    photo: customMemberImg
+  };
+
+  generateMember(teamContainer, customMember);
+
+});
+
+
+
+
 
 
 
@@ -56,8 +84,8 @@ function generateMember(target, singMemb) {
   const cardText = document.createElement('div');
   cardText.className='card-text';
 
-  
-  cardImage.innerHTML = `<div class="card-image"><img src="${singMemb.photo}" alt="" /></div>`;
+  //metto img/ fisso nell'src dell'immagine per poter indicare l'immagine stessa solo tramite il nome e non il percorso relativo
+  cardImage.innerHTML = `<div class="card-image"><img src="img/${singMemb.photo}" alt="" /></div>`;
   cardText.innerHTML = `<h3>${singMemb.name}</h3> <p>${singMemb.role}</p>`;
 
   teamCard.append(cardImage);
