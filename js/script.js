@@ -1,3 +1,6 @@
+//dichiaro le variabili
+
+//array contenente gli obj per i vari membri
 const members = [
   {
    name: 'Angela Caroll',
@@ -27,16 +30,8 @@ const members = [
 ];
 
 const teamContainer=document.querySelector('.container .team-container');
-const teamCard = document.createElement('div');
-teamCard.className='team-card';
-const cardImage = document.createElement('div');
-cardImage.className='card-image';
-const cardText = document.createElement('div');
-cardText.className='card-text';
 
-
-
-
+//ciclo che genera i vari membri richiamando la funzione apposita index volte
 
 for (let index in members) {
   const singleMember = members[index];
@@ -46,14 +41,22 @@ for (let index in members) {
 
   generateMember(teamContainer, singleMember);
 
-
-
 }
 console.log(teamContainer);
 
 
 
-function generateMember(target, singMemb){
+//funzione che genera i membri in base ai dati presenti nell'array di oggetti dichiarato all'inizio
+function generateMember(target, singMemb) {
+
+  const teamCard = document.createElement('div');
+  teamCard.className='team-card';
+  const cardImage = document.createElement('div');
+  cardImage.className='card-image';
+  const cardText = document.createElement('div');
+  cardText.className='card-text';
+
+  
   cardImage.innerHTML = `<div class="card-image"><img src="${singMemb.photo}" alt="" /></div>`;
   cardText.innerHTML = `<h3>${singMemb.name}</h3> <p>${singMemb.role}</p>`;
 
