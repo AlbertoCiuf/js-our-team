@@ -32,7 +32,6 @@ const members = [
 const teamContainer=document.querySelector('.container .team-container');
 
 //ciclo che genera i vari membri richiamando la funzione apposita index volte
-
 for (let index in members) {
   const singleMember = members[index];
   let memberName = singleMember.name;
@@ -42,8 +41,6 @@ for (let index in members) {
   generateMember(teamContainer, singleMember);
 
 }
-//console.log(teamContainer);
-
 
 const newMemberButton = document.getElementById('addMemberButton');
 const newMemberName = document.getElementById('name');
@@ -51,26 +48,33 @@ const newMemberRole = document.getElementById('role');
 const newMemberImg = document.getElementById('image');
 
 
-
+//funzione al click del pulsante "Add" del form che genera nuovo membro custom
 newMemberButton.addEventListener('click', function(){
-  
   let customMemberName = newMemberName.value;
   let customMemberRole = newMemberRole.value;
   let customMemberImg = newMemberImg.value;
 
-  const customMember = {
-    name : customMemberName,
-    role: customMemberRole,
-    photo: customMemberImg
-  };
+  //controllo validità dati inseriti nel form
+  if (
+    (customMemberName !=='') && (customMemberRole !=='') && (customMemberImg !=='')
+  ) {
 
-  generateMember(teamContainer, customMember);
+    const customMember = {
+      name : customMemberName,
+      role: customMemberRole,
+      photo: customMemberImg
+    };
+  
+    generateMember(teamContainer, customMember);
+    members.push(customMember);
+
+    //log per verificare il corretto inserimento del nuovo membro
+    // console.log(members);
+  } else {
+    alert('Inserisci dei valori validi nel form e riprova.');
+  }
 
 });
-
-
-
-
 
 
 
@@ -90,7 +94,5 @@ function generateMember(target, singMemb) {
 
   teamCard.append(cardImage);
   teamCard.append(cardText);
-
   target.append(teamCard);
-
 }
