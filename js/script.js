@@ -15,7 +15,7 @@ const members = [
   {
    name: 'Barbara Ramos',
    role: 'Graphic Designer',
-   photo: 'angela-lopez-social-media-manager.jpg'
+   photo: 'barbara-ramos-graphic-designer.jpg'
   },
   {
    name: 'Scott Estrada',
