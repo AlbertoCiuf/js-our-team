@@ -26,12 +26,40 @@ const members = [
   }
 ];
 
+const teamContainer=document.querySelector('.container .team-container');
+const teamCard = document.createElement('div');
+teamCard.className='team-card';
+const cardImage = document.createElement('div');
+cardImage.className='card-image';
+const cardText = document.createElement('div');
+cardText.className='card-text';
+
+
+
+
+
 for (let index in members) {
   const singleMember = members[index];
-
   let memberName = singleMember.name;
   let memberRole = singleMember.role;
   let memberPhoto = singleMember.photo;
 
+  generateMember(teamContainer, singleMember);
+
+
+
+}
+console.log(teamContainer);
+
+
+
+function generateMember(target, singMemb){
+  cardImage.innerHTML = `<div class="card-image"><img src="${singMemb.photo}" alt="" /></div>`;
+  cardText.innerHTML = `<h3>${singMemb.name}</h3> <p>${singMemb.role}</p>`;
+
+  teamCard.append(cardImage);
+  teamCard.append(cardText);
+
+  target.append(teamCard);
 
 }
