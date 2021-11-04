@@ -89,13 +89,12 @@ function generateMember(target, singMemb) {
   //metto img/ fisso nell'src dell'immagine per poter indicare l'immagine stessa solo tramite il nome e non il percorso relativo
   teamCard.innerHTML = 
   `
-  <div class="card-image">
-  <img src="img/${singMemb.photo}" alt="" />
-
-      <div class="card-text">
-        <h3>${singMemb.name}</h3>
-         <p>${singMemb.role}</p>
-      </div>
+    <div class="card-image">
+      <img src="img/${singMemb.photo}" alt="" />
+    </div>
+    <div class="card-text">
+      <h3>${singMemb.name}</h3>
+      <p>${singMemb.role}</p>
     </div>
   `;
   target.append(teamCard);
@@ -103,8 +102,6 @@ function generateMember(target, singMemb) {
 
   //***MODO CON COSTANTI CREATE E APPEND:***
 
-  // const teamCard = document.createElement('div');
-  // teamCard.className='team-card';
   // const cardImage = document.createElement('div');
   // cardImage.className='card-image';
   // const cardText = document.createElement('div');
