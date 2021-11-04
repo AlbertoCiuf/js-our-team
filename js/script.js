@@ -83,16 +83,38 @@ function generateMember(target, singMemb) {
 
   const teamCard = document.createElement('div');
   teamCard.className='team-card';
-  const cardImage = document.createElement('div');
-  cardImage.className='card-image';
-  const cardText = document.createElement('div');
-  cardText.className='card-text';
+  
+  //***MODO CON TEMPLATE LITERAL:***
 
   //metto img/ fisso nell'src dell'immagine per poter indicare l'immagine stessa solo tramite il nome e non il percorso relativo
-  cardImage.innerHTML = `<div class="card-image"><img src="img/${singMemb.photo}" alt="" /></div>`;
-  cardText.innerHTML = `<h3>${singMemb.name}</h3> <p>${singMemb.role}</p>`;
+  teamCard.innerHTML = 
+  `
+  <div class="card-image">
+  <img src="img/${singMemb.photo}" alt="" />
 
-  teamCard.append(cardImage);
-  teamCard.append(cardText);
+      <div class="card-text">
+        <h3>${singMemb.name}</h3>
+         <p>${singMemb.role}</p>
+      </div>
+    </div>
+  `;
   target.append(teamCard);
+
+
+  //***MODO CON COSTANTI CREATE E APPEND:***
+
+  // const teamCard = document.createElement('div');
+  // teamCard.className='team-card';
+  // const cardImage = document.createElement('div');
+  // cardImage.className='card-image';
+  // const cardText = document.createElement('div');
+  // cardText.className='card-text';
+
+  // //metto img/ fisso nell'src dell'immagine per poter indicare l'immagine stessa solo tramite il nome e non il percorso relativo
+  // cardImage.innerHTML = `<div class="card-image"><img src="img/${singMemb.photo}" alt="" /></div>`;
+  // cardText.innerHTML = `<h3>${singMemb.name}</h3> <p>${singMemb.role}</p>`;
+
+  // teamCard.append(cardImage);
+  // teamCard.append(cardText);
+  // target.append(teamCard);
 }
